@@ -15,10 +15,15 @@ export interface Database {
           created_at: string
           updated_at: string
           user_id: string
+          student_id: string
+          juzuk: number
           surah_name: string
+          page_from: number
+          page_to: number
           ayat_from: number
           ayat_to: number
           status: 'new' | 'in_progress' | 'completed'
+          grade: 'mumtaz' | 'jayyid_jiddan' | 'jayyid' | null
           notes: string | null
         }
         Insert: {
@@ -26,10 +31,15 @@ export interface Database {
           created_at?: string
           updated_at?: string
           user_id: string
+          student_id: string
+          juzuk: number
           surah_name: string
+          page_from: number
+          page_to: number
           ayat_from: number
           ayat_to: number
           status?: 'new' | 'in_progress' | 'completed'
+          grade?: 'mumtaz' | 'jayyid_jiddan' | 'jayyid' | null
           notes?: string | null
         }
         Update: {
@@ -37,10 +47,15 @@ export interface Database {
           created_at?: string
           updated_at?: string
           user_id?: string
+          student_id?: string
+          juzuk?: number
           surah_name?: string
+          page_from?: number
+          page_to?: number
           ayat_from?: number
           ayat_to?: number
           status?: 'new' | 'in_progress' | 'completed'
+          grade?: 'mumtaz' | 'jayyid_jiddan' | 'jayyid' | null
           notes?: string | null
         }
       }
@@ -52,6 +67,8 @@ export interface Database {
           username: string | null
           full_name: string | null
           avatar_url: string | null
+          role: 'teacher' | 'student' | null
+          teacher_id: string | null
         }
         Insert: {
           id: string
@@ -60,6 +77,8 @@ export interface Database {
           username?: string | null
           full_name?: string | null
           avatar_url?: string | null
+          role?: 'teacher' | 'student' | null
+          teacher_id?: string | null
         }
         Update: {
           id?: string
@@ -68,6 +87,8 @@ export interface Database {
           username?: string | null
           full_name?: string | null
           avatar_url?: string | null
+          role?: 'teacher' | 'student' | null
+          teacher_id?: string | null
         }
       }
     }
