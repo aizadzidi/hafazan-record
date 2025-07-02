@@ -67,7 +67,7 @@ export interface Database {
           username: string | null
           full_name: string | null
           avatar_url: string | null
-          role: 'teacher' | 'student' | null
+          role: 'admin' | 'teacher' | 'student' | null
           teacher_id: string | null
         }
         Insert: {
@@ -77,7 +77,7 @@ export interface Database {
           username?: string | null
           full_name?: string | null
           avatar_url?: string | null
-          role?: 'teacher' | 'student' | null
+          role?: 'admin' | 'teacher' | 'student' | null
           teacher_id?: string | null
         }
         Update: {
@@ -87,7 +87,7 @@ export interface Database {
           username?: string | null
           full_name?: string | null
           avatar_url?: string | null
-          role?: 'teacher' | 'student' | null
+          role?: 'admin' | 'teacher' | 'student' | null
           teacher_id?: string | null
         }
       }

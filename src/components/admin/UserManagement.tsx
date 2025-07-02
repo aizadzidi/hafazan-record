@@ -66,14 +66,19 @@ export default function UserManagement() {
       // Create profile
       const { error: profileError } = await supabase
         .from('profiles')
-        .update({
+        .insert({
+          id: authData.user.id,
+          username: authData.user.email,
           full_name: newUser.full_name,
           role: newUser.role,
           teacher_id: newUser.role === 'student' ? newUser.teacher_id : null
         })
-        .eq('id', authData.user.id)
 
-      if (profileError) throw profileError
+      if (profileError) {
+        // If profile creation fails, we should delete the auth user
+        await supabase.auth.admin.deleteUser(authData.user.id)
+        throw profileError
+      }
 
       toast.success('User created successfully')
       
